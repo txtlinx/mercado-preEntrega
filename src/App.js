@@ -14,7 +14,6 @@ function App() {
     document.title = 'supermercado test';
   },[])
   return (
-
     <Router>
       <Navbar/>
       <Container customClass="min-height">
