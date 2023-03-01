@@ -1,0 +1,2544 @@
+
+
+let nombres = ['pedro','javier','italo','pePE']
+let grades = [10,10,233,55,64,44];
+function getNumberOfGrades(grade) {
+  return grade.length; //numero de elementos
+}
+console.log(getNumberOfGrades('EL NUMERO DE GRADOS ES',grades))
+
+function getFirstChar(name){
+  return name[0];//primer elemento del array
+}
+
+
+console.log(getFirstChar(nombres));
+function getLastChar(name){
+  return name[name.length -1]//ultimo elemento del array
+}
+console.log(getLastChar(nombres));
+
+// function getLowerCase(n){
+//   return n.toLowerCase();
+// }
+// console.log(getLowerCase(nombres))//no sirve
+
+function getDescription(text){
+  if(text.length > 10){
+    return text.substring(0, 10)+ '...';
+  }
+  return text;
+}
+
+function elementAdd(elemento){
+ return elemento.push('elemento123?!23');
+}
+
+//console.log(nombres);
+elementAdd(nombres);
+console.log(nombres);
+
+grades.forEach(function(grade){
+  console.log(grade)//devuelve el arreglo entero
+})
+nombres.forEach(function(nombre){
+  console.log(nombre)//devuelve el arreglo entero
+})
+
+let n =grades.filter(function(n){
+  return true;//retorna el arreglo completo sin filtrar nada
+})
+console.log(n);
+
+nombres.filter(function(n){
+  console.log(n)
+})
+console.log('////////////////')
+
+function a(years, searchYear){
+  return years.find(function(year){
+    return year === searchYear;
+  })
+}
+console.log(a(nombres,'javier'))
+
+
+nombres.map(function(strings){
+     console.log(strings.length)
+  })
+
+  function getStringSizes(strings) {//devuelve cuantos string tiene cada pocicion
+    return strings.map(function(strings){
+        return strings;
+
+    }).length
+}
+/////////////')
+
+// function getVotersCount(strings){
+//   return strings.filter(function(age){
+//       return age
+//   })
+// }
+
+// function le(grad){
+//   return grad.filter(function(age){
+//     return age >=18 
+//   }).length;
+// }
+let edad = [10,10,233,233,23,23]
+
+function le(grad){
+  return grad.filter(function(age){
+    return age >=18
+})
+}
+let j = le(edad)
+console.log(j)
+
+function le2(grades){
+   return grades.filter(function(grades){
+    return grades >=18
+   }).length
+}
+const t = le2(edad)
+console.log(t)
+
+//var allowed = (age > 18) ? 'yes' : 'no';
+var elvisLives = 19 > 18 ? "es mayor de 18" : "No";
+console.log(elvisLives)
+
+console.log(19 >18?true:false)
+
+var firstCheck = false,
+    secondCheck = false,
+    access = firstCheck ? "Acceso Denegado" : secondCheck ? "Acceso Denegado" : "Acceso Permitido";
+
+console.log( access ); // muestra "Acceso Permitido"
+var arr = ['a','b','c']
+console.log(arr.toString());//a,b,c
+console.log(arr.join('-'));//a-b-c
+console.log(arr.pop());//c
+console.log(arr.push(firstCheck));//c
+console.log(arr.shift());//a
+console.log(arr.unshift('ww'));//ww,b,false
+console.log(arr.slice());//[ 'ww', 'b', false ]
+console.log(arr.reverse());//[ false, 'b', 'ww' ]
+
+function add() {
+  var sum = 0;
+  for (var i = 0, j = arguments.length; i < j; i++) {
+    sum += arguments[i];
+  }
+  return sum;
+}
+console.log(add(2, 3, 4, 5)); // 14
+
+function fnV2(){//devuelve el arreglo * 2 cada pos
+  let m=[];
+  for(var i=0, j = arguments.length;i<j;i++){
+     m[i] = arguments[i]*2
+  }
+  return m
+}
+console.log(fnV2(2,2,2,5))
+
+function makePerson(first, lastname){
+  return {
+    first : first,
+    lastname : lastname
+  }
+}
+function personName(person){
+  return person.first+ ' ' +person.lastname;
+}
+function personFullNameReversed(person){
+  return person.lastname +','+ person.first;
+}
+
+var nom =  makePerson('tito','fabi')
+console.log(personName(nom))
+
+function makePerson2(id,nom,dni){
+  return {
+    id : id,
+    nom : nom,
+    dni : dni
+  }
+}
+
+function personV(data){
+  return data.id +' '+data.nom+' '+data.dni
+}
+var per = makePerson2('e','pablo','182829')
+console.log(personV(per))
+
+function makePerson3(first, last){
+    this.first = first,
+    this.last = last
+   
+  };
+  
+  makePerson3.prototype.nomFn = function(){
+    return this.first.toUpperCase();
+  };
+  //var a = makePerson3('Pablo','Dos Santos')
+  //console.log(a.fullnameReversed())
+  var obj = new makePerson3('pablo', 'dos sanot')
+  console.log(obj.nomFn)
+  console.log('////////////////////////////////')
+  
+function persona(first, last){
+  this.first = first;
+  this.last = last;
+}
+persona.prototype.fullname = function(){
+  return this.first + ' ' + this.last;
+}
+persona.prototype.fullnameR = function(){
+  return this.last + ' ' + this.first;
+}
+var Per = new persona('pablo','dos santos')
+
+function persona1(dato1, dato2){
+  this.dato1 = dato1;
+  this.dato2 = dato2;
+}
+
+var avg = function(){
+  let sum = 0;
+  for(var i=0,j = arguments.length;i<j;i++){
+    sum += arguments[i]
+  }
+  return sum / arguments.length
+}
+console.log(avg(7,7,7))
+
+console.log('////////////////////////////////')
+function person3(first, last){
+  this.first = first;
+  this.last = last;
+}
+person3.prototype.fuln = function(){
+  return this.first+' '+this.last;
+}
+var Per3 = new person3('pablo','dos santos')
+var dd = Per3.fuln()
+console.log(dd)
+
+var s = 'Simon';
+//s.reversed(); // TypeError en la línea 1: s.reversed no es una función
+
+String.prototype.reversed = function() {
+  var r = '';
+  for (var i = this.length - 1; i >= 0; i--) {
+    r += this[i];
+    console.log(r)
+  }
+  return r;
+};
+console.log(s.reversed()); // nomiS
+
+let rrhh = 'Pablooooooooof'
+ rrhh = rrhh.length - 1
+console.log(rrhh)
+rrhh = 'Pablooooooooof'
+String.prototype.reversa = function(){
+  var l = '';
+  for(var i = this.length -1;i >= 0;i--){
+    l += this[i]
+    //console.log(l);
+ }
+ return l
+}
+console.log(rrhh.reversa())
+
+console.log('ESTA ES UNA PRUEBA DE STRING REVERTIENDO TODO LO QUE HEMOS ECHO HASTA EL MOMENTO '.reversa())
+console.log('hola');
+
+// var toString = 'oooooooooo'
+
+function mak(first, last){
+  this.first = first,
+  this.last = last
+  
+};
+mak.prototype.toString = function() {
+  //return '<Person: ' + this.fullName() + '>';
+}
+
+var Mak = new mak('pabloto', 'santos dos')
+var ss = Mak.toString()
+console.log(ss)
+
+console.log('////////////////////////////////')
+
+const tagline = 'MDN - Resources for developers, by developers';
+console.log(tagline.indexOf('R'))//R
+console.log(tagline.slice(0,3))
+
+let sumnn = (x,y) =>x+y //funcion flecha que suma dos numeros
+let addas = (x, y) => { return x + y; };
+
+console.log(typeof addas)
+
+let ede = [1,2,3];
+ede.sort(function(a,b){ 
+    return b - a; 
+});
+console.log(ede); // [6,4,2]
+let ede2 = [1,10,100];
+ede2.sort((a,b) => b - a);
+console.log(ede2); // [6,4,2]
+var arre = [55,2,3,4,34,4,4,22];
+function compare(a,b){return(a-b)}
+arre.sort(compare)
+console.log(arre.sort(compare)); // [1,2,3]
+arr.sort((a,b)=>a-b)
+arr.sort((a,b)=>a-b)
+arr.sort((a,b)=>a-b)
+let arre2a = ['réservé', 'Premier', 'Cliché', 'communiqué', 'café', 'Adieu'];
+//console.log(arre2a.sort((a, b) => a.localeCompare(b, 'ES', { ignorePunctuation: true })))
+var result = arre2a.map(function(el,i){
+  return {index: i, value: el.toLowerCase()};
+});
+console.log(result) 
+
+let arre2b = ['réservé', 'Premier', 'Cliché', 'communiqué', 'café', 'Adieu'];
+var resultado2 = arre2b.map(function(na,nb){
+  return {pos: nb ,valor: na}
+})
+console.log(resultado2)
+let arre2c = ['pablo', 'daniel', 'pablue', 'vale', 'café', 'Adieu'];
+let af = arre2c.map(a => a.length)
+console.log(af)
+
+function show(){
+   return x => x + arguments[0]
+}
+
+let display = show(3, 3);
+let resultA = display(5);
+console.log(display)
+
+
+function filterA(numbers, callback){
+  let resultsA =[];
+  for(const number of numbers){
+    if (callback(number)){
+      resultsA.push(number);
+    }
+  }
+  return resultsA;
+}
+let numbers2 = [1, 2, 4, 7, 3, 5, 6];
+let oodNum = filterA(numbers2, function(number){
+  return number % 2 != 0;
+});
+console.log(oodNum)
+
+function ff(numeros,callback){
+  let result = [];
+  for(const numero of numeros){
+    if(callback(numero)){
+      result.push(numero)
+    }
+  }
+  return result
+}
+
+let ns = [2,3,4,2,5,3,9,9,3,3];
+console.log('todos los nuemros: ' + ns)
+let variableImp = ff(ns,(numero)=>numero % 2 !=0);
+console.log('impares: ' + variableImp)
+let variablePar = ff(ns,(numero)=>numero %2 ==0);
+console.log('numero Pares: ' + variablePar)
+
+// let oodNum = filterA(numbers2, function(number){
+//   return number % 2 != 0;
+// });
+// let oddNumbers = filter(numbers, (number) => number % 2 != 0);
+function nombrePersona(first, last){
+  this.first = first;
+  this.last = last;
+  this.nombreComplero = function(){
+    return this.first+ ' ' + this.last
+  }
+}
+var nn = new nombrePersona('PABLO','DOS SANTOS')
+console.log(nn.nombreComplero())
+
+let speedA = 90;
+let messageB = speedA >= 120 ? 'opcion - 1': speedA >= 80 ? 'a': 'b';
+let messageC = speedA >= 150 ? 'opcion - 2': speedA >= 81 ? 'a': 'b';
+
+function addOne(number = 0){
+  return number + 1
+}
+function addOne1(user = 'Pablo'){
+  return `Hola ${user}`
+}
+console.log(addOne1())
+//console.log(sum = (a,b)=>a+b)
+var sdum=(a,b)=>{return a+b}
+console.log(sdum(2,4))
+let w3s = [1, 2, 4, 7, 3, 5, 6];
+console.log('//////////////////////////////////')
+w3s.forEach(function(w3){
+  console.log(w3)
+})
+console.log('//////////////////////////////////')
+w3s.forEach((w3)=>console.log(w3))
+//array filter
+let hyh = w3s.filter(function(w3){
+  return w3 >5
+})
+console.log(hyh)
+let hyhPar = w3s.filter(function(w3){
+  return w3 % 2 == 0
+})
+console.log(hyhPar)
+
+let hy = w3s.filter(function(w3){
+  return w3 % 2 != 0
+})
+let haha = w3s.filter((w3)=>(w3<5))
+console.log(haha)
+var tmpv = [-5, 12, 3,12,12,14,1]
+console.log('//////////////////////////////////////////////')
+const varGrades = (temperatures) =>{
+  return temperatures.filter((temp=> temp >= 0))
+}
+console.log(varGrades([-5, 12, 3]))
+console.log('//////////////////////////////////////////////')
+
+let popa = tmpv.filter(function(tmp){
+  return tmp >10
+})
+console.log(popa)
+console.log('//////////////////////////////////////////////')
+
+popa = tmpv.filter((tm)=>(tm >10))
+console.log(popa)
+//Búsqueda de matriz (devolución de llamada)
+const nnx = ['Sam','Israel','Pablo','Fabiean','Pablo'];
+let nnxR = nnx.find(function(name){
+    return name ==='Pablo';
+})
+console.log(nnxR)
+nnxR = nnx.find((name)=>name ==='Pablo')
+console.log(nnxR)
+//map
+nnxR = tmpv.map(function(nn){
+  return nn *2
+})
+console.log(nnxR)
+nnxR = tmpv.map(nn=>nn*2)
+console.log(nnxR)
+var c = [-5, 12, 3,12,12,14,1,21,22]
+
+const getRaisedGrades = grades => {
+  return grades.map(function(grade) {
+      if (grade + 1 > 20) {
+          return 20;
+      }
+      return grade + 1;
+  }).join(";");
+}
+console.log(getRaisedGrades(c))
+
+const getRaisedGradesV2 = grades =>{
+  return grades.map(grade=>{
+    if(grade +1 >20){
+      return 20
+    }
+    return grade+1
+  })
+}
+console.log(getRaisedGradesV2(c))
+//busca cun ano
+const f1 = (years, searchyears)=>{
+  return years.find(year =>year === searchyears) 
+}
+const f2 = (years,searchyears)=>{
+  return years.find(year => year ===searchyears)
+}
+const f3 = (years,searchyears)=>{
+  return years.find(year =>year ===searchyears)}
+
+  const getMessage = message => {
+    if (message.endsWith(".")) {
+        return message;
+    }
+    return message + ".";
+}
+let ng;
+console.log(ng ='esta es una prueba para el replace.')
+console.log(ng.replace('replace','metodo replace'))
+
+
+/**
+ * @param {string} name
+ */
+ const getSlug = name => {
+  // start by lower casing the string
+  let result = name.toLowerCase();
+  // then get the first 15 characters
+  result = result.substring(0, 15);
+  // convert all the space characters to dashes
+  result = result.replaceAll(" ", "-");
+  // return result
+  return result;
+}
+
+// Sample usage - do not modify
+console.log(getSlug("IKEA tablesss")); // "ikea-table"
+//console.log(getSlug("200cm Bed")); // "200cm-bed"
+//console.log(getSlug("Bedside lavalamp")); // "bedside-lavalam"
+//console.log(getSlug("A B C noodles")); // "a-b-c-noodles"
+
+let fCC = "freeCodeCamp"; // Cambia esta línea
+let fact = "is cool!"; // Cambia esta línea
+fact = "is awesome!";
+const FCC="freeCodeCamp"
+fCC= fCC.toUpperCase();
+console.log(FCC, fact); // Cambia esta línea 
+
+const myStr = "FirstLine\n\tSecondLine\n\ThirdLine"; // Cambia esta línea
+console.log(myStr)
+
+const User = [{
+    id: 1,
+    name: 'pablo'
+  },
+  {
+    id: 2,
+    name: 'doe'
+}]
+
+const usera = [{
+  id:1,
+  nom:'Doe'
+},{
+  id:2,
+  nom:'pablo'
+}]
+// var arruser = usera.map(user =>user.name)
+// console.log(arruser)
+//  var csv = arruser.join(', ')
+
+ const csv = usera.map(user =>user.name).join(', ')
+ console.log(csv);
+
+ const numbers = [15,10,20,21];
+ const allAbove10 = numbers.every(number =>numbers>=20);
+ const allAbove15 = numbers.every(number =>numbers>=444);
+
+ console.log(allAbove10);
+ console.log(allAbove15);
+ 
+ const shouldAdjustGrades = grades => {
+  return grades.some(grade => grade < 10);
+}
+
+
+// Sample usage - do not modify
+shouldAdjustGrades([10, 12, 10, 14]); // false
+shouldAdjustGrades([12, 8, 17]); // true
+
+const gr = grades => { 
+  return grades.some(grade => grade < 10);
+}
+console.log(gr([10,10,3,10,10,10]));
+
+let items = ["Pen", "Paper", "Staples"];
+const deletedItem = items.splice(0,1); //remove one element at index 0
+console.log(items); //[ 'Paper', 'Staples' ]
+
+const resetApps = apps => {
+  return apps.length = 0;
+}
+
+// Sample usage - do not modify
+const apps = ["Calculator", "Whatsapp", "Chrome", "Firefox"]
+console.log(resetApps(apps));
+
+const appsA = ["Calculator", "Whatsapp", "Chrome", "Firefox"]
+const removeFirstApp = apps => {
+  apps.splice(0,1);
+  return apps;
+}
+console.log(removeFirstApp(appsA));//[ 'Whatsapp', 'Chrome', 'Firefox' ]
+
+/**#RESUME
+ * El método Array .every(callback)regresa truecuando todos los elementos de la matriz cumplen la condición proporcionada en la devolución de llamada.
+.some(callback)El método Array regresa truecuando al menos un elemento de la matriz cumple la condición proporcionada en la devolución de llamada.
+Puede vaciar una matriz estableciendo su longitud en 0.
+.splice(start[, deleteCount])elimina elementos de la matriz del startíndice. El número de elementos que eliminará se especifica mediante deleteCount.
+Si omite deleteCount, eliminará todos los elementos del startíndice. */
+
+//Matriz reducir: multiplicación 
+
+const num = [3, 2, 2];
+let resu= num.reduce((total, current)=>{
+    return total * current;
+}, 1);
+console.log(resu)
+
+
+const num1= [3, 2, 2];
+let resu2 = num1.reduce((total, current)=>{
+    return total + current;
+}, 0);
+console.log(resu2)
+
+//Usando .forEach
+let numbers1=[3,3,3]
+let sum2 = 0
+numbers1.forEach(number=>{
+  sum2 = sum2 + number
+})
+console.log(sum2);
+
+//Usando .reduce
+const sum = numbers.reduce((total, current) => {
+  return total + current
+}, 0);
+
+//concatenación de matrices
+
+const lat =[3,3]
+const lng =[2,2]
+const point = [...lat,...lng]
+console.log(point);
+
+const itemsA = ["Tissues", "Oranges"];
+
+const otherItems = [...itemsA, "Tomatoes"];
+console.log(otherItems); // ["Tissues", "Oranges", "Tomatoes"]
+
+//Object.keys
+const user = {
+  id: 1,
+  name: "Sam Green",
+  age: 20
+};
+
+//const keys = Object.keys(user)
+
+const settings = {
+  theme: "Dark",
+  version: "2.4.1",
+  beta: false
+};
+
+const keys = Object.keys(settings);
+console.log(keys); // ["theme", "version", "beta"]
+keys.forEach(key => {
+  // log the value of every key dynamically
+  console.log(settings[key]);/**
+  Dark
+  2.4.1
+  false 
+  */
+});
+
+const key  = {
+  llve:233,
+  nni:10,
+  pp0:'ee542'
+}
+const getUpperCasedProperties = course => {
+  return Object.keys(course).map(key => key.toLocaleUpperCase());
+}
+
+let accs= getUpperCasedProperties(key)
+console.log(accs)
+
+const pf = course =>{
+  const k = Object.keys(key)
+  return k;
+}
+
+console.log(pf(key))
+
+const usser = {
+  id: 1,
+  name: 'San Diego',
+  age: 20
+
+}
+const value = Object.values(usser)
+console.log(value)
+
+const an4 = {
+  p: 'xsm',
+  t:'lsita'
+}
+let acas = Object.values(an4)
+console.log(acas);
+
+const entries = Object.entries(an4);
+console.log(entries)
+
+/**
+ * 
+ * Cuando acceda a una propiedad que no existe en un objeto, obtendrá undefined.
+Cuando intenta acceder a una propiedad o llamar a un método undefined(o una expresión que se evalúa como undefined), obtendrá un error Uncaught TypeError: Cannot read property 'X' of undefined.
+Cuando vea [object Object], significa que se usó un objeto en un contexto que esperaba una cadena. Entonces, el .toString()método se ha llamado automáticamente en el objeto.
+El Object.values()método devuelve una matriz de los valores de un objeto.
+El Object.entries()método devuelve una matriz de matrices que representan cada par clave/valor.
+ */
+
+const getUpperCasedValues = course => {
+  return  Object.values(course).map(value =>value.toUpperCase())
+}
+
+// Sample usage - do not modify
+console.log(getUpperCasedValues({name: "Learn JavaScript"})); // ["LEARN JAVASCRIPT"]
+console.log(getUpperCasedValues({name: "Learn JavaScript", category: "Programming"})); // ["LEARN JAVASCRIPT", "PROGRAMMING"]
+
+/**No puede usar la sintaxis de punto cuando la propiedad que intenta leer está almacenada en una variable o es el resultado de una expresión (dinámica).
+En su lugar, debe usar corchetes con el nombre de la variable dentro. [key]por ejemplo
+object[key]primero evaluará la keyexpresión y luego leerá la propiedad en función de su resultado.
+El Object.keys(obj)método devuelve una matriz de todas las claves en el objque proporciona.
+Cuando acceda a una propiedad que no existe en un objeto, obtendrá undefined.
+Cuando intenta acceder a una propiedad o llamar a un método undefined(o una expresión que se evalúa como undefined), obtendrá un error Uncaught TypeError: Cannot read property 'X' of undefined.
+Cuando vea [object Object], significa que se usó un objeto en un contexto que esperaba una cadena. Entonces, el .toString()método se ha llamado automáticamente en el objeto.
+El Object.values()método devuelve una matriz de los valores de un objeto.
+El Object.entries()método devuelve una matriz de matrices que representan cada par clave/valor.
+Lo revisaremos Object.entries()más adelante en este curso. */
+
+/**
+ * const user = {name}.
+const user = {age}es equivalente a const user = {age: age}.
+ */
+
+const usert = {
+  id: 1,
+  name: "Sam",
+  isAdmin: true
+};
+
+const {id, name, isAdmin: admin} = usert;
+// We've renamed isAdmin to admin while destructuring
+console.log(admin); // true
+
+const getUpperCasedProperties2 = course => {
+  return Object.keys(course).length;
+}
+
+let accs2= getUpperCasedProperties2(key)
+console.log(accs2)
+
+const users = [{
+  id:1,
+  name:'sam doe'
+},{
+  id:2,
+  name: 'pablo dos'
+}];
+
+var csv2 = users.map(user => user.name).join(', ')
+console.log(csv2)
+
+const userz= {
+  details: {
+      name: {
+          firstName: "Sam"
+      }
+  },
+  data: null
+}
+console.log(userz.details?.name?.firstName); 
+
+const get = course => {
+  return Object.keys(course).map(key => key.toUpperCase());
+}
+
+
+const data = {
+  temperatures : [3,5,7,-3]
+}
+
+let primerValor = undefined;
+if(data.temperatures){
+  primerValor = data.temperatures[0];
+}
+console.log(primerValor);
+
+//refactorizada
+const segundoValor = data.temperatures?.[0]
+console.log(segundoValor);
+//Uso de encadenamiento opcional con funciones
+
+const person = {
+  age: 43,
+  name: 'pa'
+};
+
+let upperCasedName = person.name; // might be undefined
+if (person.name) {
+  upperCasedName = person.name.toUpperCase?.()
+}
+console.log(upperCasedName);
+console.log('hola')
+
+//refactorizada
+const resr = person.names?.toUpperCase()
+console.log(resr);
+
+let dataZ = {
+  results:{
+    grades: [4,4,3,2]
+  }
+}
+
+const getFirstGrade = data => {
+  if(dataZ.results && dataZ.results.grades){
+    return data.results.grades[0]
+  }
+}
+console.log(getFirstGrade(dataZ));
+//refactorizado
+const getf = data =>{
+  const dt = data.results?.grades?.[0]
+  return dt
+}
+console.log(getf(dataZ))
+
+const nome ={
+  info:{
+    name: 'PAVJIE',
+    a: 4
+  }
+}
+//Using the nullish coalescing operator
+const ffff = nome =>{
+    return nome.info.name?.[2].toLowerCase()
+}
+console.log(ffff(nome));
+
+const getName = nome => {
+  return nome??"N/A incorrector"
+}
+console.log(getName(nome))//{ info: { name: 'PAVJIE', a: 4 } }
+console.log(getName(null))//N/A incorrector
+
+const nullValue = null;
+const emptyText ='';
+const someNumber = 34;
+
+const valA = nullValue ?? 'entrara aqui si nullValue es null'
+const valB = emptyText ?? 'entrara aqui si es null o vacio'
+const valC = someNumber ?? 'devolvera el valor ya que no es null ni vacio'
+
+//Assigning a default value to a variable
+let foo = 4
+const someDummyText = foo || "Hello!";
+console.log(someDummyText);
+const count = 0;
+const text = "";
+
+const qty = count || 42;
+const message = text || "hi!";
+console.log(qty); // 42 and not 0
+console.log(message); // "hi!" and not ""
+const defaultd = 'default'
+let vvv = {
+  persona: {
+    hombre: 
+      {
+        nombre:'Pablo',
+        edad:1}
+  }}
+
+console.log(vvv.persona.hombre.nombre?.toLocaleUpperCase()?? defaultd);
+
+/**
+ * @param {object} user
+ * @param {string} [user.fullName]
+ */
+ const getWelcomeMessage = user => {
+  if (user.fullName) {
+      return `Welcome ${user.fullName}`;
+  } else {
+      return `Welcome user`;
+  }
+}
+
+
+let userA = {
+  fullName: 'pablo dos santosS'
+
+}
+console.log(getWelcomeMessage({fullName: "Sam Green"})); // "Welcome Sam Green"
+console.log(getWelcomeMessage({})); // "Welcome user"
+
+const getWelcomeMessage2ref = user =>{
+  return `welcome ${userA.fullName }??  'user'`
+  return `Welcome ${user.fullName ?? "user"}`;
+}
+
+console.log(getWelcomeMessage2ref(user));
+//undefined significa que la propiedad aún no ha sido definida. 
+//null significa que la propiedad ha sido definida pero está vacía.
+
+/**const user = {
+    id: 1,
+    name: "Sam",
+    age: null
+}
+
+console.log(user.age); // null
+console.log(user.birthday); // undefined
+ */
+
+const getPushMessage = status =>{
+  if (status === 'recived'){
+    return 'Restaruntant stated working on your order.';
+  }else if(status === 'prepared'){
+    return 'Driver is picking up your food'
+  }else if(status === 'en_route'){
+    return 'Drive is cycling your way!'
+  }else if (status === "arrived"){
+    return 'Enjoy yout food'
+  }else{
+    return "Unknown status"
+  }
+}
+//funcion refactorizada
+const getPushMessageFac = status =>{
+  const message = {
+    recived: 'Restaruntant stated working on your order',
+    prepared: 'Driver is picking up your food.',
+    en_rotue: 'Driver is cycling you way!',
+    arrived: 'Enjoy your food'
+  }
+  return message[status] ?? 'Unknown status';
+};
+/**
+ * @param {string} host
+ * @param {string} user
+ * @param {Object} booking
+ * @param {string} bookinsg[].stsatus
+ */
+
+const getSt = ( host, user, booking)=> {
+  const message = {
+    pending: `hola ${user}, el estado es: pendiente HOST: ${host}`,
+    confirmed: `Hola, ${user}tu pedido estado es: confirmado HOST: ${host}`
+  };
+  return message[booking.status] ?? 'Error desconocido'
+}
+
+const pedido = {
+      status : 'pending'
+}
+console.log(getSt('209.290.190.11', 'pablo',pedido ));
+
+//OPERADOR LOGICO EN LO OPUESTO
+!true; // false
+!false; // true
+console.log(!true);//false
+
+//MATRICES DE OBJETOS
+
+const tweets = [
+  {
+      id: 1080777336298049537,
+      message: "Hello Twitter 👋",
+      created_at: "2020-01-03 11:46:00",
+      author: {
+          id: 109215315,
+          firstName: "Jad",
+          lastName: "Joubran",
+          handle: "JoubranJad"
+      }
+  },
+  {
+      id: 1080777336298195435,
+      message: "How do you keep track of your notes?",
+      created_at: "2021-02-19 15:32:00",
+      author: {
+          id: 109216891,
+          firstName: "Sam",
+          lastName: "Green",
+          handle: "SamGreen"
+      }
+  }
+];
+//recorre array de objetos
+tweets.forEach (tweet=>{
+  console.log(tweet.author.handle);
+})
+const results = [{
+  date: "2018-12-13",
+  grade: 14
+}, {
+  date: "2018-12-15",
+  grade: 18
+}]
+const getSumOfGrades = results => {
+  let sum = 0;
+  results.forEach(result=>{
+    sum += result.grade
+  })  
+  return sum;//total suma grados
+};
+console.log(getSumOfGrades(results));  //32
+console.log('////////////////////////');
+const getAverageAge = users => {
+  let total = 0;
+  users.forEach(user => total += user.age);
+  return total / users.length;
+};
+//PROMEDIO
+const sumaEdad = user =>{
+  let total = 0;
+  user.forEach(user => {
+    total += user.grade
+  })
+  return total/user.length;
+}
+console.log(sumaEdad(results));
+/**
+* @param {string} users.name
+ * @param {object} [users.subscription]
+ * @param {object} [users.subscription.info]
+ * @param {number} [users.subscription.info.value]
+ */
+const getTotalSales = users => {
+    let tot = 0;
+    users.forEach(user =>{
+        tot += user.subscription?.info?.value ?? 0
+        })
+        return tot
+}
+
+// Sample usage - do not modify
+const usersQ = [
+    {id: 1, name: "Alex"},
+    {id: 2, name: "Sam", subscription: {info: {value: 59}}},
+    {id: 3, name: "Charlie", subscription: {info: {value: 31}}}
+];
+console.log(getTotalSales(users)); // 90
+
+//Transformar arreglos de objetos 
+const nomb = ['PedRO','jAVieR','ALEx']
+const rss = nomb.map(n=>n.toUpperCase())
+console.log(rss)//[ 'PEDRO', 'JAVIER', 'ALEX' ]
+//MATRIZ DE OBJETO
+const tweetsA = [
+  {
+      id: 1080777336298049537,
+      message: "Hello Twitter 👋",
+      created_at: "2020-01-03 11:46:00"
+  },
+  {
+      id: 1080777336298195435,
+      message: "How do you keep track of your notes?",
+      created_at: "2021-02-19 15:32:00"
+  }
+];
+
+const mess = tweetsA.map(n=>n.id);
+console.log(mess);//[ 1080777336298049500, 1080777336298195500 ]
+
+const aer = ['Pewwww','eekiei88e','ALExikiii']
+const getnn= user =>{
+  return user.map(u=>{
+    return u.toUpperCase()
+  })
+}
+console.log(getnn(aer));
+console.log('////////////////////////////');
+const petra = user=>{
+  return user.map(u=>{
+    return `${u.created_at} ${u.created_at}`
+  })
+}
+console.log(petra(tweetsA));
+
+//Matriz .filtro()
+const arrP = [
+  {
+      id: 3,
+      message: "How do you keep track of your notes?",
+      stats: {
+          likes: 3,
+          retweets: 20
+      },
+      prop:{
+      }
+  },
+  {
+    id: 41241,
+    message: "How do you keep track of your notes?",
+    stats: {
+        likes: 14,
+        retweets: 20
+    },
+    prop:{
+    }
+  }
+];
+const usges = [{
+  id: 33,
+  idi:{
+    flag:44
+  }
+
+},
+{
+  id: 1,
+  idi:{
+    flag:44
+  }
+}]
+const dea = arrP.filter(filtro => {
+return filtro.id<4
+})
+console.log('/////////////');
+//retorno implicito
+//tweets.filter(tweet => tweet.stats.likes > 30);
+ const deaV2 = usges.filter(u=>u.id<2)
+ const deav3 = usges.filter(u=>u.id>32)
+ console.log(deaV2);//[ { id: 1, idi: { flag: 44 } } ]
+ console.log(deav3);//[ { id: 33, idi: { flag: 44 } } ]
+const getUpperCasedValuess = course => {
+  const de = Object.values(course)
+  return de
+}
+//console.log(getUpperCasedValuess(usges))
+//##########################################3Array .buscar()################################################################
+/**Llamar al .find()método en una matriz de objetos devolverá el primer objeto que coincida con la condición que especifique 
+ * en la devolución de llamada, o undefinedsi ningún objeto satisface la condición . */
+
+//  const searchId = 41241;
+//  const tweet = tweets.find(tweet => tweet.id === searchId);
+//  console.log(tweet); // {...} (2nd tweet object)
+
+ const OPE =[{
+      ID: 33
+ },{
+  ID: 33
+ },
+ {
+  ID: 232
+ }
+]
+const searchId2 = 33;
+const busq = OPE.find(b=>b.ID === searchId2)
+console.log(busq);
+
+//##################Array .algunos() .some()
+const tweetsC = [
+  {
+      id: 10512,
+      message: "Hello Twitter 👋",
+      stats: {
+          likes: 41,
+          retweets: 54
+      }
+  },
+  {
+      id: 41241,
+      message: "How do you keep track of your notes?",
+      stats: {
+          likes: 14,
+          retweets: 20
+      }
+  }
+];
+//tweetsC.some(tweet => tweet.stats.likes > 30); // true (at least one has more than 30 likes)
+//tweetsC.some(tweet => tweet.stats.likes > 100); // false (none of the tweets satisfy this condition)
+//#####################################Array .every()####################################Array .every()
+//tweetsC.every(tweet => tweet.status.likes > 10); // true (all the tweets have more than 10 likes)
+//tweetsC.every(tweet => tweet.status.likes > 30); // false (some tweets don't have more than 30 likes)
+
+/**
+ * tweets.every(tweet => tweet.status.likes > 10); // true (all the tweets have more than 10 likes)
+tweets.every(tweet => tweet.status.likes > 30); // false (some tweets don't have more than 30 likes)
+ */
+
+//TAREAS
+
+//FILTRA VALORES BOLEANOS 
+/**
+ * @param {Object[]} courses
+ * @param {number}   courses.id
+ * @param {string}   courses.name
+ * @param {boolean}  courses.isCompleted = TRUE
+ */
+//FILTRA LOS VALORE 
+ const getCompletedCourses = courses => {
+  return courses.filter(c=>c.isCompleted)
+}
+
+const sampleGroups = [{
+  id: 1,
+  title: "Football",
+  details: {
+      messageCount: 30,
+      isPublic: true
+  }
+}, {
+  id: 2,
+  title: "Family",
+  details: {
+      messageCount: 1014,
+      isPublic: false
+  }
+}];
+//Conversión a CSV (valores separados por comas)
+const cvs3 = sampleGroups.map(smp=>smp.title).join( ", " )
+console.log(cvs3);
+
+//Desestructuración de objetos
+sampleGroups.forEach(s=>{/**30 true
+                          1014 false */
+
+   const {messageCount,isPublic}=s.details
+   console.log(messageCount,isPublic)
+})
+
+
+
+const exportVerifiedUsers = users => {
+   return users.filter(user => user.isVerified)
+               .map(user =>user.name)  
+               .join(", ")   
+ 
+}
+//matriz de numeros
+const gradesM = [10, 15, 5];
+//matriz de objeto
+const gradesN = [{grade: 10}, {grade: 15}, {grade: 5}];
+//REDUCE
+/**
+ * @param {Object[]} groups
+ * @param {number} groups.id
+ * @param {string} groups.title
+ * @param {object} groups.details
+ * @param {number} groups.details.messageCount
+ * @param {boolean} groups.details.public
+ */
+// const sumMessageCount = groups => {
+//   return groups.reduce((total, current) => {
+//       console.log(current);
+//       return total + current.details.messageCount;
+//   }, 0);
+// }
+
+/**
+ * @param {Object[]} products
+ * @param {number} products.price
+ * @param {number} products.quantity
+ */
+ const getCartTotal = products => {
+  return products.reduce((total, current) => {
+      console.log(current);
+      return total + (current.price * current.quantity);
+  }, 0);
+}
+
+// Sample usage - do not modify
+const sampleProducts = [{
+  price: 10,
+  quantity: 3
+}, {
+  price: 5,
+  quantity: 4
+},{
+  price: 3,
+  quantity: 5
+
+}]
+console.log(getCartTotal(sampleProducts)); // 50
+
+/**
+ * @param {Object[]} recordings
+ * @param {number} recordings.value
+ */
+
+const fnc = recordings =>{
+  return recordings.reduce((total, current)=>{
+    console.log(current)
+    return total * current.price
+  }, 1)
+}
+console.log(fnc(sampleProducts))
+
+console.log('step-1')
+try{ 
+  funcionDesconocida('3')
+
+}catch(error){
+  console.log(error)
+}
+console.log('Despues del catch');
+
+const addItem = (items, item) => {
+  items.push(item)
+  return items
+}
+const sampleProductsV1 = [{
+  price: 10,
+  quantity: 3,
+  f:'delInfo'
+}, {
+  price: 5,
+  quantity: 4,
+  f: 'tnde qQ ESCOND FOR EVE'
+},{
+  price: 3,
+  quantity: 5
+
+}]
+
+/**
+* @param {string[]} items
+*/
+const exportLowerCasedCSV = items => {
+  return items.map(item=>item.f)
+}  
+console.log(exportLowerCasedCSV(sampleProductsV1));
+
+const expor = items =>{
+    return items.map(function(item){
+      return item.price
+}).join('##################jaajaja##################')};
+
+console.log(expor(sampleProductsV1));
+
+/**Matrices y objetos
+Las matrices y los objetos se consideran objetos en JavaScript.
+Cuando escribe [], es lo mismo que crear una nueva instancia de Array.
+Cuando escribe {}, es lo mismo que crear una nueva instancia de Object. */
+
+new Array(); // creates []
+new Object(); // creates {}
+
+const array1 = new Array()
+array1.push(10,10)
+console.log(array1);
+const objec1 = new Object()
+objec1.keys = ['key','yek']
+console.log(objec1);
+
+const grades90 = [{
+  id: 1,
+  grade: 12,
+  isPassing: false // we need to update this to true
+}, {
+  id: 1,
+  grade: 14,
+  isPassing: true
+}];
+
+const entry = grades90.find(grade => grade.id === 1);
+
+entry.isPassing = true
+console.log(entry);
+console.log(entry);
+
+/**
+ * @param {array} users
+ * @param {number} userId
+ */
+ const verifyUser = (users, userId) => {
+  users = users.find(u=>u.id ===userId)
+ return users.isVerified= true
+
+}
+// Sample usage - do not modify
+const users45 = [{
+ id: 1,
+ name: "Sam",
+ isVerified: false
+}, {
+ id: 2,
+ name: "Alex",
+ isVerified: false
+}, {
+ id: 3,
+ name: "Charlie",
+ isVerified: false
+}];
+verifyUser(users45, 2);
+console.log(users45); // notice that it gets mutated
+
+//Operaciones de matrices inmutables 
+
+const gradesCV = [10, 20];
+const gradesCopy = [...gradesCV];
+console.log(gradesCopy); // [10, 20] (new array, not linked to 'grades')
+
+/**Por otro lado, los que son inmutables son .filter()y .map()porque estos métodos devuelven una nueva matriz (en lugar de modificar la anterior).
+   El .reduce()método también es inmutable ya que devuelve un nuevo valor calculado a partir de una matriz. */
+
+   //devuelve una nueva matriz (por lo que no afecta a la original). 
+   const rec = [4,4,6];
+   const upd = rec.filter(r=>r<5)
+   console.log(upd);
+
+   //copia superficil
+   //[...originalArray].
+
+   //Eliminación inmutable
+   const book = {
+    id: 1,
+    title: "Harry Potter",
+    year: 2017,
+    rating: 4.5
+}
+
+// GOOD: immutable
+const {year, ...rest} = book;
+console.log(rest); // { id: 1, title: "Harry Potter", rating: 4.5}
+//CLASS
+class PersonQ {
+  constructor() {
+      console.log("I was automatically called");
+  }
+}
+
+// class usage
+const personQ = new PersonQ; // () are optional when there are no arguments
+class rc {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
+  }
+}
+
+const rc1 = new rc(1,1)
+
+//console.log(rc1);
+//Captura de parámetros del constructor
+
+class clase{
+  constructor(valorA, valorB){
+    this.valorA = valorA;
+    this.valorB = valorB;
+    
+  }
+  getValores(){
+    return `${this.valorA} ${this.valorB}`;
+  }
+
+}
+
+const claseCreada = new clase('2','123')
+console.log('/////////////////////////');
+
+console.log(claseCreada.getValores())
+
+// class definition
+class UserClase {
+  constructor(firstName, lastName, prefix, age) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.prefix = prefix;
+      this.age = age;
+  }
+
+  getFullName() {
+      return `${this.prefix}. ${this.firstName} ${this.lastName}`;
+  }
+
+  canVote() {
+      return this.age >= 18;
+  }
+}
+
+
+// Sample usage - do not modify
+const user1 = new UserClase("Sam", "Doe", "Mrs", 20);
+console.log(user1.getFullName()); // "Mrs. Sam Doe"
+console.log(user1.canVote()); // true
+const user2 = new UserClase("Alex", "Green", "Mr", 17);
+console.log(user2.getFullName()); // "Mr. Alex Green"
+console.log(user2.canVote()); // false
+
+//Llamar a un método de instancia desde otro
+class UserClaseA {
+  constructor(a,b){
+    this.a = a;
+    this.b = b;
+  }
+  fun(){
+    return  this.a + this.b
+  }
+  getfun(){
+    const sum =  this.fun();
+    return `hola el resultado es:  ${sum}`;
+
+  }
+}
+const userclaseA = new UserClaseA(2,2)
+console.log(userclaseA.getfun());
+//comrpendiendo clases js
+class todos {
+  constructor(){
+    this.todos= [{
+      cod: 'EP0000',
+      mess: 'ACCEPT',
+    },{
+      cod: 'EP0023',
+      mess: 'PENDING',
+    }]
+  }
+  getAll(){
+    this.todos
+  }
+  getCount(){
+    this.todos.length;
+  }
+  add(cod,mess){
+    this.todos.push({cod, mess})
+  }
+  getOK(){
+    console.log(this.todos);
+    return this.todos.filter(f=>f.cod=='EP0000')??`${this.todos.mess}`//<--arreglar, no retorna caso FALSE
+  }
+
+}
+
+const codear = new todos()
+console.log(codear.getOK());
+//gettter and setter\/ 
+
+/**
+ * La definición de getters y setters en una clase se usa principalmente para validar o modificar ciertos
+ *  valores antes de que se establezcan como propiedades en una clase.
+Suponiendo una instancia user, el acceso user.agellamará get age()si existe el captador.
+Suponiendo una instancia user, la configuración user.age = llamará set age(value)si existe el setter.
+Al crear getters y setters, asegúrese de prefijar la nueva variable de instancia con un _para evitar la creación de un bucle infinito.
+ */
+
+console.log('////ENTRANDO A PAYMENTS');
+class Payments {
+  constructor(amount) {
+    this.amount = amount;
+  }
+  get amount(){
+    return this._cents;
+  }
+  set amount(value){
+   
+    return this._cents = value *100
+  }
+}
+const pmt = new Payments(120)
+console.log(pmt.amount);
+class UserF {
+  get age() {
+      console.log("age getter");
+      return this._age;
+  }
+
+  set age(value) {
+      console.log("age setter");
+      this._age = Number.parseInt(value, 10);
+  }
+}
+
+console.log()
+
+const userf = new UserF()
+userf.age = 10
+console.log(userf.age);
+
+const objCreado ={
+  objeto: 'string'
+}
+class Tasks {
+  /**
+  * @param {string[]} todos
+  */
+  constructor(todos) {
+      this._todos = todos;
+  }
+  get todos(){
+     return  this._todos.join(', ')
+  }
+
+}
+const objTask = new Tasks(['111','11'])
+console.log(objTask.todos);
+
+//ENCADENAMIENTO DE METODOS//
+class Course {
+  constructor(name, isCompleted) {
+      this.name = name;
+      this.isCompleted = isCompleted;
+  }
+
+  markAsCompleted() {
+      this.isCompleted = true;
+      return this; // allows method chaining
+  }
+
+  setGrade(grade) {
+      this.grade = grade;
+      return this; // allows method chaining
+  }
+
+  requestCertificate() {
+      this.askedForCertificate = true;
+      return this; // allows method chaining
+  }
+}
+
+class Discount {
+  constructor() {
+      this.amount = 1000;
+  }
+
+  applyDiscount() {
+      if (Discount.isValid()) {
+          this.amount = 500;
+      }
+  }
+
+  static isValid() {
+      return Math.random() <= 0.5; // 50% chance returns true
+  }
+}
+
+// Sample usage - do not modify
+console.log(Discount.isValid()); // true or false
+const discount = new Discount;
+discount.applyDiscount();
+console.log(discount.amount); // either 1000 or 500
+
+console.log('/////COMPRENDIENDO HERENCIAS///////////////');
+///COMPRENDIENDO HERENCIA
+//construccion de la clase empleado
+class empleado {
+  constructor() {
+    this.primerNombre = primerNombre;
+    this.apellido =  apellido;
+    
+  }
+  consigueNombre(){
+    return `${this.primerNombre} ${this.apellido}`
+  }
+  consigueIniciales(){
+    return this.primerNombre[0] + this.apellido[0]
+  }
+  menssage(){
+    console.log('funcion dentro de mensaje')
+  }
+}
+//CLASE EMPLEADO CON HERENCIA
+// class empleadoHerencia {
+//   constructor(primerNombre, apellido){
+//     this.primerNombre = primerNombre;
+//     this.apellido     =  apellido;
+//   }
+//   consigueNombre(){
+//     return `${this.primerNombre} ${this.apellido}`
+//   }
+//   consigueIniciales(){
+//     return this.primerNombre[0]  + this.apellido[0]
+//   }
+// }
+// class Manager extends empleadoHerencia{
+//   send(){
+//     console.log(`mensage dentro de funcion send`)
+//   }
+// }
+
+//const heredableA = new empleadoHerencia('pablo', 'dos santos')
+//var manager = new empl('a','a','f');
+//console.log(manager.getPath()) ; // logs "Sent performance review for current quarter"
+//manager.getFullName(); // "Sam Green"
+//manager.getInitials(); // "SG"
+//console.log();
+
+class UserN{
+  constructor(primerNombre, segundoNombre){
+    this.primerNombre = primerNombre;
+    this.segundoNombre = segundoNombre;
+    this.edad = 18
+    
+  }
+
+  nombreCompl(){
+    return `${this.primerNombre} ${this.segundoNombre}`
+  }
+  canVote(){
+    return this.edad
+  }
+}
+class Admin extends UserN{
+  nombreCompl(){
+    return `${this.primerNombre} ${this.segundoNombre}`
+  } 
+}
+
+const adminin = new Admin('pavlo', 'dos sant');
+//SUPER 
+class Emmm {
+  constructor(name,lastname){
+      this.name = name;
+      this.lastname;
+
+  }
+  fullname(){
+      return `${this.name}`
+  }
+
+}
+class UserPOP {
+  constructor(name,lastname){
+      this.name = name;
+      this.lastname;
+
+  }
+  fullname(){
+      return `${this.name}`
+  }
+
+}
+//EXTENDIDAD
+class AdminN extends UserPOP {
+  constructor(firstName, lastName, age, userType) {
+      super(firstName, lastName, age);
+      this.userType = userType;
+  }
+}
+class clasePadre{
+  constructor(parametroNombreClase1,parametroNombreClase2,parametroNombreClase3){
+    this.parametroNombreClase1 =parametroNombreClase1;
+    this.parametroNombreClase2 =parametroNombreClase2;
+    this.parametroNombreClase3 =parametroNombreClase3;
+
+  }
+}
+class nombreClase extends clasePadre{
+  constructor(parametroNombreClase1, parametroNombreClase2, parametroNombreClase3){ //constructor de nombreClase
+  super(parametroClasePadre1,parametroClasePadre2,parametroClasePadre2)
+  this.parametroNombreClase3 = parametroNombreClase3
+  }
+}
+
+//NUEVA CLASE
+class coleccion{
+  constructor(name, worth){
+    this.name = name;
+    this.worth = worth;
+    contador= 0;
+  }
+  cuentaMensaje(){
+    return `${this.name} ${this.worth}s coleccion`
+  }
+  coleccion(){
+    this.contador++;
+  }
+  puntos(){
+    return this.count * this.worth;
+  }
+
+}
+
+// module.exports = class moneda extends coleccion{
+//   constructor(){
+//     super('coin',8)
+//   }
+// }
+
+// module.exports = class gema extends coleccion{
+//   constructor(){
+//     super('gema', 80)
+//   }
+// }
+
+//Herencia prototípica
+function Gorilla(){
+
+}
+function Banana(){
+
+}
+function GorillaBanana(){
+
+}
+GorillaBanana.prototype.eat =  Gorilla.prototype.eat;
+GorillaBanana.prototype.peel = Gorilla.prototype.peel;
+
+class benvidos{
+  Hola(){
+    return 'HolaCtmre'
+  }
+}
+class chao extends benvidos{
+  childMetod(){
+
+  }
+}
+const child = new chao();
+Object.getPrototypeOf(child);
+
+console.log(child.Hola())
+
+class BookSale {
+  constructor() {
+      this.amount = 1000; // US cents
+      this.currency = "usd";
+      this.isStudent = false;
+  }
+
+  applyStudentDiscount() {
+      this.isStudent = true;
+      this.amount = 800;
+      return this;
+  }
+  setCurrency(currency) {
+      this.currency = currency;
+      return this;
+  }
+  applyPercentageDiscount(percent) {
+      this.amount = this.amount - this.amount * percent / 100;
+      return this;
+  }
+}
+// Sample usage - do not modify
+const bookSale = new BookSale;
+let ju = bookSale.applyStudentDiscount().setCurrency("eur").applyPercentageDiscount(5);
+console.log(ju);
+//campos de clase privada
+
+class ggrup {
+  #variablePrivada = 18;
+  get variablePrivada(){
+    return this.#variablePrivada
+  }
+  set variablePrivada(age){
+    if(age >=18){
+      return this.#variablePrivada = age
+    }else{
+      return 1
+    }
+  }
+}
+
+const hijoGgrup = new ggrup();
+console.log(hijoGgrup.variablePrivada=10);
+
+//Métodos de instancias privadas
+class UserZA {
+  constructor(age) {
+      this.age = age;
+      this.#logAge();
+  }
+
+  #logAge() {
+      console.log(this.age);
+  }
+}
+
+const userZS = new UserZA(20);
+// cannot call user.#logAge() or user.logAge()
+class BookSale2 {
+  #amount = 1000; // US cents
+  #currency = "usd";
+  #isStudent = false;
+
+  applyStudentDiscount() {
+      this.#isStudent = true;
+      this.#amount = 800;
+      return this;
+  }
+
+  setCurrency(currency) {
+      this.#currency = currency;
+      return this;
+  }
+
+  applyPercentageDiscount(percent) {
+      this.#amount = this.#amount - this.#amount * percent / 100;
+      return this;
+  }
+  
+  getAmount() {
+      return this.#amount;
+  }
+}
+// Sample usage - do not modify
+const bookSale2 = new BookSale2;
+bookSale.applyStudentDiscount().setCurrency("eur").applyPercentageDiscount(5);
+console.log(bookSale)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+console.log('a');
+setTimeout(() => {
+  console.log("este mensaje esta dentro del primer Setimeout");
+}, 1);
+
+console.log('c'); 
+
+/**¿Qué significa sincrónico y asincrónico?
+Para explicar la diferencia entre código sincrónico y asincrónico, piense en la diferencia entre una conversación cara a cara y una conversación por mensaje de texto.
+
+Una conversación cara a cara es sincrónica porque las personas hablan y responden inmediatamente una tras otra.
+Sin embargo, una conversación por mensaje de texto es asincrónica porque los destinatarios pueden responder más tarde en el futuro. */
+
+//Una conversación cara a cara es sincrónica porque las personas hablan y responden inmediatamente una tras otra.
+const cfSum =((n)=>console.log(n))
+
+const bienvenidoUsuario = (name, callback)=>{
+  setTimeout(()=>{
+    cfSum('dentro del callback')
+    console.log(`variable nombre ${name} variable: `);
+        //callback(); // call the success callback function
+    }, 1);
+  }
+  bienvenidoUsuario('pablo',cfSum('3'))
+
+   const sumGrades = (grades, callback) => {
+    // simulate expensive operation
+    setTimeout(() => {
+        const sum = grades.reduce((total, current) => total + current, 0);
+        if (callback) {
+            callback(sum); // call the success callback with the sum
+        }
+    }, 1);
+}
+
+
+  const calcSumV2 = (g) =>{
+    sumGrades(g, valor =>{
+      console.log(`el valor es: ${valor}`);
+    })
+  }
+  calcSumV2([2,2])
+
+//   showLoader(() => {
+//     getWeather((data) => {
+//         // success callback
+//         hideLoader(() => {
+//             enableRefreshButton();
+//             displayWeather(data, () => {
+//                 logToAnalytics("weather");
+//             });
+//         });
+//     }, () => {
+//         // error callback
+//         hideLoader(() => {
+//             enableRefreshButton();
+//         });
+//     })
+// });
+
+
+//   a(()=>{
+//     b((data)=>{
+//       c(()=>{
+//         d();
+//          f(data, ()=>{
+//           console.log('d');
+//          });
+
+//       });
+//     }, ()=>{
+//       c(()=>{
+//         d();
+//     });
+//   })
+// });
+
+// const grv = [2,2,2];
+
+// const semT=(t,v) => {
+//   console.log(`el valor de semT V: ${t}`);
+// }
+//  //semT(grv)
+
+//  //refactorizado para usar Promises 
+//  const wait = milliseconds => {
+//   return new Promise(resolve => {
+//       setTimeout(() => {
+//           resolve();
+//       }, milliseconds);
+//   });
+// }
+// console.log("A");
+// wait(1900).then(() => {
+//     // this runs when the wait(milliseconds) function has completed successfully
+//     console.log("B");
+// })
+//console.log("C");
+
+const wait  =  m =>{
+  return new Promise(resolve=>{
+    setTimeout(()=>{
+      resolve();
+      console.log('...##########dentro del wait#####################...');
+    },m)
+  })
+}
+
+
+const wait2 = m2 =>{
+  return new Promise(resolve =>{
+    setTimeout(()=>{
+      resolve();
+      console.log('...##########dentro del wait2#####################...');
+    },m2)
+  })
+}
+
+const wait3 = m3 =>{
+  return new Promise(resolve=>{
+    setTimeout(()=>{
+      resolve();
+      console.log('...##########dentro del wait3#####################...');
+    },m3)
+  })
+}
+
+const wait4 = m4 =>{
+  return new Promise(resolve=>{
+    setTimeout(()=>{
+      resolve();
+      console.log('...##########dentro del wait4#####################...');
+    },m4)
+  })
+}
+
+const wait5 = m5 =>{
+  return new Promise(resolve=>{
+    setTimeout(()=>{
+      resolve();
+      console.log('...##########dentro del wait5#####################...')
+    },m5)
+  })
+}
+
+const variable = mmn =>{
+  return new Promise(resolve=>{
+    setTimeout(()=>{
+      resolve();
+
+    },mmn)
+  })
+}
+variable(8000).then(()=>{
+  console.error('probabdo el error')
+})
+variable()
+wait(2).then(()=>{console.log('sc');})
+wait2(2).then(()=>{console.log('sc');})
+wait3(2).then(()=>{console.log('sc');})
+wait4(2).then(()=>{console.log('sc');})
+
+const pro = (a,b,c)=>{
+  return c(a,b)
+}
+const af3 =pro(3,3,(a,b)=>a+b);
+console.log(`promesaaaaaaa ${af3}`);
+
+const pro2 = (valor1,valor2,fn) =>{
+  return  fn(valor1, valor2)
+}
+const afss = pro2(23,23,(a,b)=>a+b)
+console.log(afss);
+const w = m=>{
+  return new Promise(resolve=>{
+      setTimeout(()=>{
+       resolved();
+      },m)
+  })
+}
+const w2 = m2=>{
+  return new Promise(resolved=>{
+    setTimeout(()=>{
+      resolved();
+        console.log(`prom`)
+    },m2)
+  })
+}
+w2(5000).then(()=>{
+  console.log('entrando');
+})
+
+
+const w3  = m3=>{
+  return new Promise(resolve=>{
+    setTimeout(()=>{
+      resolve();
+    },m3)
+  }
+)}
+
+const w4 = m4=>{
+  return new Promise(resolve=>{
+    setTimeout(()=>{
+      resolve();
+    },m4)
+})
+}
+
+const w5 =m5=>{
+  return new Promise(resolved=>{
+    setTimeout(()=>{
+      resolved();
+
+  },m5)
+ }
+)}
+
+const w6 = m6 =>{
+  return new Promise(resolve=>{
+    setTimeout(()=>{
+      resolve();
+    },m6)
+  })
+}
+
+const w7 = m7 =>{
+  return new Promises(resolve=>{
+    setTimeout(()=>{
+      resolve()
+    },m7)
+  })
+}
+
+const init =()=>{
+  console.log('init');
+  w3(4000).then(()=>{console.log('despues de 4 segundo')}
+)}
+init()
+
+const init2 = () =>{
+  console.log('init2');
+  w4(2000).then(()=>{console.log('despues de 2 seugndos');})
+}
+init2()
+
+const fakeFetch = () =>{
+  return new Promise(resolve=>{
+    const min =1;
+    const max =3;
+    const rand = Math.floor(Math.random() * (max - min +1)) + min;
+    setTimeout(()=>{
+      resolve()
+    },rand * 1)
+  })
+}
+
+
+const init3 = () => {
+  fakeFetch().then(()=>{console.log('el fakeFetch a sido completado')}
+  )}
+
+  init3()
+
+  const w8 = m8 =>{
+    return new Promise(resolve=>{
+      setTimeout(()=>{resolve()},m8)
+    })
+  }
+
+
+ const statusW8 = w8(1000)
+ console.log(statusW8);//Promise { <pending> }
+
+ statusW8.then(()=>{console.log(statusW8)})//Promise { undefined }
+// Una promesa puede tener 3 estados: pending, fulfilledy rejected.
+// Cada promesa comienza con el pendingestado y luego se vuelve fulfilledcuando se ha 
+// completado con éxito. Las promesas le permiten ejecutar una devolución de llamada en el
+// futuro cuando la promesa se haya completado con éxito.
+const city = ['amsterdam','tokyo']
+const getWDes = (city)=>{
+  return new Promise((resolve, rejected)=>{
+    if(!city|| typeof city !== 'string'){
+      rejected('El dato debe ser un string')
+    }
+    if(!["amsterdam", "tokyo"].includes(city.toLowerCase())){
+      rejected('La ciudad debe ser amsterdam o tokyo')
+    }
+    setTimeout(()=>{
+      if(city.toLowerCase()=="amsterdam"){
+        resolve('Cloudy');
+    }
+    if(city.toLowerCase()=="tokyio"){
+      resolve('sunny');
+    }
+    
+  },1)
+  })
+}
+
+const lwtD = nombreCiudad =>{
+  getWDes(nombreCiudad).then(data=>{
+    console.log(data);
+  }
+)}
+lwtD('amsterdam')
+
+const fakefetch2 = (endpoint) =>{
+  return new  Promise((resolve, reject) =>{
+    if(endpoint !=='endpoint'){
+       reject('el endpoind no es carrecto')
+    }
+    const min =1;
+    const max = 2;
+    //const rand = Math.floor(Math.random() *()
+    setTimeout(()=>{
+      
+    })
+   
+  })
+}
+// const rand = Math.floor(Math.random() * (max - min + 1)) + min;
+
+const min =1;
+const max = 5;
+const aasd = Math.floor(Math.random()*(max - min+1)  + min)
+
+ console.log(aasd);
+
+ /**El rejectedestado de una promesa está destinado a cuando las cosas se rompen. Por ejemplo, 
+  * un problema de conexión de red. La devolución de llamada proporcionada a .catch(callback)se 
+  * ejecutará si la promesa termina en el rejectedestado.
+  * Una promesa comienza en el pendingestado y luego se resolverá con éxito ( fulfilled) o se rechazará 
+  * con un error ( rejected).
+  * También es posible que una promesa nunca se resuelva (podría ser un error de implementación o podría deberse a 
+  * que nunca se cumple la condición para resolver). */
+ const fakeFetch3 = (endp)=>{
+  return new Promise((resolve, reject) =>{
+    if(endp !== 'a'){
+      reject('El endpoint no es correctoOOOOOOOOOOOOOOOOOOOOOOOOOOO')
+    }
+    
+    const min = 1;
+    const max = 10;
+    const rand  = Math.floor(Math.random() *(max - min + 1) + min)
+
+    const dataRes = {
+      departed: false,
+      delayed: true
+    }
+    setTimeout(()=>{
+      resolve(dataRes)
+      console.log('entro a resolve y rand vale' , rand);
+    },rand)
+  })
+ }
+
+const fnFakeFetch3 = ()=>{
+  fakeFetch3('a').then((data)=>{
+    console.log(data);
+  }).catch((err)=>{
+    console.error(err);
+  })
+}
+
+fnFakeFetch3()
+///////////////////////////////////////////////////
+const cityV2 = ['amsterdam','tokyo']
+const getWDesV2 = (cityV2)=>{
+  return new Promise((resolve, rejected)=>{
+    if(!cityV2|| typeof cityV2 !== 'string'){
+      rejected('El dato debe ser un string')
+    }
+    if(!["amsterdam", "tokyo"].includes(cityV2.toLowerCase())){
+      rejected('La ciudad debe ser amsterdam o tokyo')
+    }
+    setTimeout(()=>{
+      if(cityV2.toLowerCase()=="amsterdam"){
+        resolve('CloudyVVVVVVVVVVVVVVVVV2222222-ULTIMO-EN-SALIR');
+    }
+    if(cityV2.toLowerCase()=="tokyio"){
+      resolve('sunny');
+    }
+    
+  },5000)
+  })
+}
+
+const lwtDV2 = nombreCiudad =>{
+  getWDesV2(nombreCiudad).then(data=>{
+    console.log(data);
+  }
+)}
+lwtDV2('amsterdam')
+
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    // do some asynchronous work (such as making an HTTP request)
+    const data = getDataFromAPI();
+    if (data) {
+      // if the asynchronous operation was successful, resolve the promise
+      resolve(data);
+    } else {
+      // if the asynchronous operation failed, reject the promise
+      reject(new Error('Failed to fetch data'));
+    }
+  });
+}
+
+fetchData()
+  .then(data => {
+    // handle the successful result
+    console.log(data);
+  })
+  .catch(error => {
+    // handle the error
+    console.error(error);
+  });
+
+const getWeatherIn =(city)=>{
+  return new Promise((resolve, rejected) => {
+    if(!city || typeof city !== 'string'){
+      rejected('El dato debe ser un string')
+      if(!['amterdam', 'tokyo'].includes(city).toLowerCase()){
+        rejected('El dato debe ser amsterdam o tokyo') 
+    }
+    setTimeout(() => {
+      if(city.toLowerCase() === 'amterdam'){
+        resolve('amterdam ha sido encontrado')
+      }
+      if(city.toLowerCase() === 'tokyo'){
+        resolve('tokyo ha sido encontrado')
+      }
+  })
+  }
+})
+}
+
+
+  getWeatherIn("Amsterdam")
+    .then(data => {
+        console.log(data);
+        console.log("Done fetching weather");
+    })
+    .catch(error => {
+        console.error(error);
+        console.log("Done fetching weather");
+    });
+
+
+const getWeatherIn2 = (city)=>{
+  return new Promise((resolve, rejected)=>{
+    if(!city || typeof city !== 'string'){
+      rejected('rejected')
+    }
+    if(!['amsterdam', 'tokyo'].includes(city.toLowerCase())){
+      rejected('rejected')
+    }
+    setTimeout(()=>{
+      resolve('resolve')
+    },6000)
+  })
+
+}
+
+
+  getWeatherIn2("Amsterdam")
+  .then(data => {
+    console.log(data);
+    console.log('dentro del then');
+  })
+  .catch(error =>{
+    console.error(error);
+    console.log('dentro del error');
+
+  })
+  const refactorGetWeatherIn=(city) =>
+  {
+    return new Promise((resolve, reject)=>{
+      if(!city ||  typeof city !== 'string'){
+        reject('reject')
+      }
+      if(!['amstermad','tokyo'].includes(city.toLowerCase())){
+        reject('reject')
+      }
+      setTimeout(()=>{
+        if(city.toLowerCase()=='amsterdam'){
+          resolve('resolve')
+        }
+        if(city.toLowerCase()=='amsterdam'){
+          resolve('resolve')
+        }
+      })
+    })
+  }
+  //finally(): //REFACTORIZANDO
+
+  refactorGetWeatherIn("Amsterdam")
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error(error);
+    })
+    .finally(() => {
+        console.log("Done fetching weather");
+      });
+      
+      const RechProm =()=>{
+        return new Promise((resolve, reject) =>{
+          resolve()
+        }
+      
+      )}
+    //Rechazar manualmente una promesa
+    RechProm("Amsterdam")
+    .then(data => {
+        throw new Error("STOOOOPEDDDDD ERROR.");
+        console.log(data);
+        console.log("Done fetching weather");
+    })
+    .catch(error => {
+        console.error(error);
+        console.log("CATCH ERRRORRRRR");
+    });
+
+// try...catch no funciona con promesas porque las promesas son asíncronas.
+// Se usa .catch()para manejar errores con promesas.
+// Se .finally(callback)ejecuta después de .then()cuando la promesa se resuelve correctamente
+// y después de .catch()cuando la promesa se rechaza.
+// .finally(callback)se puede utilizar para detener un cargador en ambos casos (éxito y error).
+
+
+let g = [10,10,23,44,55,11,55,23]
+let nn = ['diego','pablo','thais']
+function getNG(g){
+    return g.length;
+}
+console.log(getNG(g)); //8
+function lastChar(name){
+    return name[name.length - 1];
+}
+console.log(lastChar(nn));//thais
+
+function getDes(text){
+    if(text.length > 0){
+        return text.substring(0, 10)+ '...'
+    }
+    return text;
+}
+
+function elementoAdd(element, add){
+    return element.push(add)
+}
+console.log(elementoAdd(g,99));
+console.log(g);//[10, 10, 23, 44, 55,11, 55, 23, 99]
+
+const varg = g.forEach(function(grades){
+    console.log(grades);//lista g
+})
+let filtro = g.filter(function(grades){
+console.log(grades);//lista);
+})
+
+function buscaAnos(anos, buscaAnos){
+    return anos.find(function(anos){
+        return  anos === buscaAnos;
+    })
+}
+console.log(buscaAnos(nn, 'diego'));//diego
+//let nn = ['diego','pablo','thais']
+nn.map(function(strings){
+    console.log(strings.length);// 5 5 5
+}).length
+//[10, 10, 23, 44, 55,11, 55, 23, 99]
+function filtro20(g){
+    return g.filter(function(gr){
+        return gr >= 20
+
+    })
+}
+console.log(filtro20(g));//[ 23, 44, 55, 55, 23, 99 ]
+function  filtro50(g){
+    return g.filter(function(gr){
+        return gr >= 50
+    }
+)}
+console.log(filtro50(g));//[ 55, 55, 99 ]
+var esMayor = 19 > 18 ? 'es mayor' : 'no es mayor';
+var esMenor = 19 < 18 ?true:false
+console.log(esMayor)//es mayor
+console.log(esMenor);//false
+
+var primerCheck =  false,
+    segundoCheck = false,
+
+    access = primerCheck ? "Acceso denegado" : segundoCheck ? "Acceso denegado2" : "Acceso no autorizado";
+
+console.log( access );//Acceso denegado
+var arr = ['a','b', 'c']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

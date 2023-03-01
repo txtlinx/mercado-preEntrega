@@ -48,11 +48,7 @@ export const PasswordInput = styled(Input).attrs({
   border: 2px solid aqua;
 `;
 
-Button.defaultProps = {
-    theme:{
-        main: "palevioletred"
-    }
-}
+
 
 export const Button = styled.button`
      margin: 1em;
