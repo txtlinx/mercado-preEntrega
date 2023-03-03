@@ -2575,14 +2575,14 @@ function attachUserType(user, type) {
 }
 
 // Sample usage
-const user1 = {
+const user1A = {
   name: "Sam",
   has_paid: true
 }
-const newUser1 = attachUserType(user1, "admin");
-console.log(newUser1);
+const newUser12 = attachUserType(user1, "admin");
+console.log(newUser12);
 // check if the operation was immutable
-console.log(newUser1 === user1); // immutable when it returns false
+console.log(newUser12 === user1); // immutable when it returns false
 
 
 

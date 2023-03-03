@@ -1,6 +1,9 @@
+import React,{useState} from "react";
 import Product from "./Product.js";
 
 export default function StoreFront() {
+    const [busqueda, setBusqueda]= useState();
+    console.log(busqueda);
     const products = [{
         name: "Cheese",
         description: "200g cheese block",
@@ -10,8 +13,15 @@ export default function StoreFront() {
         description: "1L of milk",
         image: "https://res.cloudinary.com/dbfn5lnvx/image/upload/q_auto,w_300/v1580649400/react-tutorial/products/milk.png"
     }]
+    
+    const newProducts= products.filter((p) => p.name.toLowerCase().includes(busqueda ? busqueda.toLowerCase() : ""));
+
+
     return <div className="store-front">
-        <Product details={products[0]} />
-        <Product details={products[1]} />
+
+       <input type="text" value={busqueda} onChange={(e)=>setBusqueda(e.target.value)}/>
+       
+            {newProducts.map((product) =>(<Product details={product}></Product>))}
+       
     </div>;
 }
