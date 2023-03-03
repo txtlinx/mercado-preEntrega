@@ -2484,9 +2484,91 @@ function printFullName(name) {
   return `${first} ${last}`;
 }
 //Destructuring from functions
+//repaso Inmutabilidad
+new Array() === new Array(); //false
+new Object() === new Object(); //false
+
+const arr1 = new Array();
+arr1.push(10);
+const arr2 = new Array();
+arr2.push(10);
+arr1 === arr2; //false
+
+const obj1 = new Object();
+obj1.key = "something";
+const obj2 = new Object();
+obj2.key = "something";
+obj1 === obj2; //false
+function question1() {
+  const grades = [10, 20, 30];
+  const report = grades;
+  grades.push(40);
+  console.log(grades === report)
+  // return the result of grades === report
+  return true;
+}
+
+function question2() {
+  const user = {
+      id: 1,
+      name: "Sam"
+  };
+  const admin = user;
+  admin.is_admin = true;
+  const guest = admin;
+  // return the result of guest === user
+  return true;
+}
 
 
+const result = [...numbers, 4];
+console.log(result); //[1, 2 ,3 ,4]
 
+function replaceApp(apps, oldApp, newApp) {
+  return apps.map(app =>{
+      if(app === oldApp){
+          return newApp
+      }
+      return app
+  })
+
+}
+
+// Sample usage
+const apps1 = ["Calculator", "Phone"];
+// Replace Calculator with Phone
+const newApps1 = replaceApp(apps1, "Calculator", "Phone");
+
+function Grades(){
+  const grades = [8, 18, 10, 7, 14];
+
+  // this will generate a warning (keep reading)
+  return <ul>
+      {
+          grades.map(grade => {
+              return <li>{grade}</li>
+          })
+      }
+  </ul>;
+}
+//Agregar clave/valor de forma inmutable
+
+//BAD: mutates => 
+data.age = 18;
+console.log(data); // {id: 1, name: "Sam", age: 18}
+//GOOD: immutable
+const newObjA = {...data, age: 18}
+console.log(newObj); // {id: 1, name: "Sam", age: 18}
+
+const data = {
+  id: 1,
+  age: 19
+}
+
+// GOOD: immutable
+const newObj = {...data, age: 20};
+console.log(newObj); // {id: 1, age: 20}
+console.log(data); // original object did not change {id: 1, age: 19}
 
 
 

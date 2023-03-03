@@ -5,8 +5,11 @@ export default function Product(props) {
 
     const {details} = props;
 
+    console.log(details);
+
     function handleIncrementClick() {
         setCount(count + 1);
+    
     }
     function handleDecrementClick() {
         if (count > 0){
