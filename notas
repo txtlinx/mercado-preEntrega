@@ -2570,6 +2570,20 @@ const newObj = {...data, age: 20};
 console.log(newObj); // {id: 1, age: 20}
 console.log(data); // original object did not change {id: 1, age: 19}
 
+function attachUserType(user, type) {
+  return {...user, type: type}
+}
+
+// Sample usage
+const user1 = {
+  name: "Sam",
+  has_paid: true
+}
+const newUser1 = attachUserType(user1, "admin");
+console.log(newUser1);
+// check if the operation was immutable
+console.log(newUser1 === user1); // immutable when it returns false
+
 
 
 
