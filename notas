@@ -2475,6 +2475,17 @@ var primerCheck =  false,
 console.log( access );//Acceso denegado
 var arr = ['a','b', 'c']
 
+//Desestructuracion de array
+function printFullName(name) {
+  console.log(name);
+  // TODO: write your code below this line
+
+      const[first,last] = name
+  return `${first} ${last}`;
+}
+//Destructuring from functions
+
+
 
 
 
