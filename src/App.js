@@ -1,88 +1,170 @@
-import {useState} from "react";
-import {createRoot} from "react-dom/client";
-import StoreFront from "./Component/pages/StoreFront";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Home from "./Component/pages/Home";
-import Company from "./Component/pages/Company";
-import Product from "./Component/pages/Product";
-
-import Container from "./Component/layaout/Container";
+import React,{createContext} from "react";
+import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Navbar from "./Component/layaout/Navbar";
+import Home from "./Component/pages/Home";
+import About from "./Component/pages/About.js";
+import Products from "./Component/ItemListContainer.js";
+import ProductDetails from "./Component/ItemDetails";
+import ProductDetailInfo from "./ItemDetailInfo.js";
+import ProductDetailStorage from "./Component/ItemDetailStorage.js";
+import Cart from "./Component/Cart.js";
 import Footer from "./Component/layaout/Footer";
- import { Profile } from './Component/pages/Profile';
-import ProductP from "./Component/pages/ProductP";
+
+
 
 function App() {
-    const [loggedIn, setLoggedIn] = useState(false);
-
-    if (loggedIn){
-        return <>
-            <StoreFront />
-            <button className="btn btn-outline" onClick={() => setLoggedIn(false)}>Logout</button>
-            <Router>
-       <Navbar/>
-       <Profile img="https://i.imgur.com/YfeOqp2s.jpg" name="Pablo" />
-       <Profile img="https://i.imgur.com/OKS67lhs.jpg" name="Sam" />
-       <Container customClass="min-height">
-       <Routes>
-          <Route exact path="/home" element={<Home />} />
-         </Routes>
-         <Routes>
-           <Route exact path="/company" element={<Company />} />
-         </Routes>
-         <Routes>
-           <Route exact path="/product" element={<ProductP />} />
-         </Routes>
-       </Container>
-       <Footer/>
-     </Router>
-        </>;
-    }else {
-        return <>
-            <h2>Please login</h2>
-            <button className="btn btn-primary" onClick={() => setLoggedIn(true)}>Login</button>
-    </>;
+ 
+  const [cart, setCart] = useState(function () {
+    let savedCart = [];
+    try {
+      savedCart = JSON.parse(localStorage.getItem('cart')) || [];
+    } catch (error) {
+      savedCart = [];
     }
+    return savedCart;
+  });
+
+  useEffect(() => {
+    if (cart) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+     
+    }
+    console.log(`dentro de useEffect${cart}`)
+  }, [cart]);
+  
+  function handleProductAdd(newProduct) {
+    
+    
+    const existingProduct = cart.find(
+      (product) => product.id === newProduct.id
+    );
+    if (existingProduct) {
+      
+      const updatedCart = cart.map((product) => {
+        if (product.id === newProduct.id) {
+          
+          return {
+            ...product,
+            quantity: product.quantity + 1,
+            
+          };
+          
+        }
+     
+        return product;
+      });
+      setCart(updatedCart);
+    } else {
+   
+      setCart([
+        ...cart,
+        {
+          ...newProduct,
+          quantity: 1,
+        },
+      ]);
+    }
+  
+    
+  }
+  function handleProductDelAll(){
+
+    setCart([])
+    document.title = "add products"
+
+  }
+
+  function handleProductDelete(newProduct) {
+    const existingProduct = cart.find(
+      (product) => product.id === newProduct.id
+    );
+    if (existingProduct) {
+      
+      const updatedCart = cart.map((product) => {
+        if (product.id === newProduct.id) {
+        
+          const newQuantity = product.quantity - 1;
+          if (newQuantity < 0) {
+            return product; // no petmit >0
+          }
+        
+          return {
+            ...product,
+            quantity: newQuantity,
+          
+          };
+        }
+      
+        return product;
+      });
+      setCart(updatedCart);
+    } else {
+     
+      setCart([
+        ...cart,
+        {
+          ...newProduct,
+          quantity: -1,
+        },
+      ]);
+    }
+  }
+  
+
+
+  return (
+    <BrowserRouter>
+      <Navbar cart={cart} />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />}>
+          </Route>
+          <Route path="/about" element={<About />}>
+          </Route>
+          <Route path="/products" element={<Products
+              cart={cart}
+              onProductAdd={handleProductAdd}
+              onProductDelete={handleProductDelete}
+            />}>
+          </Route>
+          <Route
+            path="/products"
+            element={
+              <Products
+                cart={cart}
+                onProductAdd={handleProductAdd}
+                onProductDelete={handleProductDelete}
+              />
+            }
+          ></Route>
+          <Route
+            path="/products/:id/"
+            element={<ProductDetails onProductAdd={handleProductAdd} />}
+          >
+            <Route
+              path=""
+              element={<ProductDetailInfo onProductAdd={handleProductAdd} cart={cart} onProductDelete={handleProductDelete}/>}
+            ></Route>
+
+          
+
+            <Route path="storage" element={<ProductDetailStorage />}></Route>
+          </Route>
+          <Route path="/cart" element={<Cart cart={cart} />}>
+           
+          </Route>
+        </Routes>
+        {cart.length > 0  && <Link className="boton" onClick={handleProductDelAll}>empty cart </Link>}
+
+        
+       
+      </div>
+      
+          <Footer/>
+    </BrowserRouter>
+  );
 }
 
 export default App;
-
-
-// import React, { useEffect} from 'react'
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import Home from "./Component/pages/Home";
-// import Company from "./Component/pages/Company";
-// import Product from "./Component/pages/Product";
-
-// import Container from "./Component/layaout/Container";
-// import Navbar from "./Component/layaout/Navbar";
-// import Footer from "./Component/layaout/Footer";
-// import { Profile } from './Component/pages/Profile';
-
-// function App() {
-//   useEffect(() => {
-//     document.title = 'supermercado test';
-//   },[])
-//   return (
-//     <Router>
-//       <Navbar/>
-//       <Profile img="https://i.imgur.com/YfeOqp2s.jpg" name="Pablo" />
-//       <Profile img="https://i.imgur.com/OKS67lhs.jpg" name="Sam" />
-//       <Container customClass="min-height">
-//       <Routes>
-//           <Route exact path="/home" element={<Home />} />
-//         </Routes>
-//         <Routes>
-//           <Route exact path="/company" element={<Company />} />
-//         </Routes>
-//         <Routes>
-//           <Route exact path="/product" element={<Product />} />
-//         </Routes>
-//       </Container>
-//       <Footer/>
-//     </Router>
-//   );
-// }
-
-
