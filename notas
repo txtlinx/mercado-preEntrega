@@ -2615,8 +2615,11 @@ Una copia profunda crea una nueva matriz con nuevos objetos.
 Crear una nueva copia de una matriz es suficiente para que React actualice el estado porque la matriz en sí ha cambiado (incluso si los objetos dentro se refieren a los antiguos).
 onClick=() => handleButtonClick(item)le permite pasar el itemcomo un parámetro (suponiendo que itemes una variable en el ámbito actual). */
 
-
-
+//return null
+if (isPacked) {
+  return null;
+}
+return <li className="item">{name}</li>;
 
 
 

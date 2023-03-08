@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { BsPaypal } from 'react-icons/bs';
-
+import Time from "../Clock/UseTime";
 export default function Navbar(props) {
   const cartCount = props.cart.reduce((total, product) => {
     if (product.quantity >= 0) {
@@ -14,8 +14,10 @@ export default function Navbar(props) {
     <nav className="navbar">
       
       <NavLink to="/" className="nav-brand">
+    
         Supermarket
       </NavLink>
+      <Time/>
       <ul>
         <li className="nav-item">
           <NavLink className={({isActive}) => isActive ? "active" : ""} to="/">
