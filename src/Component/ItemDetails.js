@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink, useParams, Outlet} from "react-router-dom";
+import { NavLink, Routes, Route, useParams, Outlet} from "react-router-dom";
 import useFetch from "./useFetch.js";
 
 export default function ProductDetails(props) {
@@ -47,17 +47,18 @@ export default function ProductDetails(props) {
     "price":34.21
  }
  ]);
-  const { get } = useFetch("address firebase");
+  const { get } = useFetch("https://react-tutorial-demo.firebaseio.com/");
+
   const params = useParams();
 
-  // useEffect(() => {
-  //   get(`productinfo/id${params.id}.json`)
-  //     .then((data) => {
-  //       setProduct(data);
-  //       console.log(`date context${data}`);
-  //     })
-  //     .catch((error) => console.log("ERROR", error));
-  // }, );
+  useEffect(() => {
+    get(`productinfo/id${params.id}.json`)
+      .then((data) => {
+        setProduct(data);
+        console.log(data);
+      })
+      .catch((error) => console.log("ERROR", error));
+  }, );
   document.title = product.name
   return (
     <div className="product-details-layout">

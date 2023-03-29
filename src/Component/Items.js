@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Product from "./Item.js";
 import useFetch from "./useFetch.js";
-
+import Loader from "./Loader.js";
 
 export default function Products(props) {
   document.title ="Products"
@@ -51,33 +51,34 @@ export default function Products(props) {
  }
  ]);
  //CALL useFetch here...configurar firebase
-//  const { get, loading } = useFetch(
-//   "aqui va firebase"
-// );
+ const { get, loading } = useFetch(
+  "https://react-tutorial-demo.firebaseio.com/"
+);
 
-//   useEffect(() => {
-//     get("supermarket.json")
-//       .then((data) => {
-//         setProducts(data);
-//         console.log(data);
-//       })
-//       .catch((error) => console.log("Cld nt load product", error));
-//   });
- let loading = false;
+  useEffect(() => {
+    get("supermarket.json")
+      .then((data) => {
+        setProducts(data);
+        console.log(data);
+      })
+      .catch((error) => console.log("Cld nt load product", error));
+  });
+ //let loading = false;
  const newProducts= products.filter((p) => p.name.toLowerCase().includes(busqueda ? busqueda.toLowerCase() : ""));
   return (
     <div className="products-layout">
       <h1>Products</h1>
-      <form class="form">
+      <form className="form">
       <input type="text" value={busqueda} placeholder="Name of product
 " onChange={(e)=>setBusqueda(e.target.value)}/>
-		<label class="lbl-nombre">
-			<span class="text-nomb">start looking for your product</span>
+		<label className="lbl-nombre">
+			<span className="text-nomb">start looking for your product</span>
 		</label>
 	</form>
       
       <h3>Our products</h3>
       <div className="products-grid">
+        {loading && setInterval((<Loader />),50000)}
 
         {newProducts.map((product) => {
           return (
